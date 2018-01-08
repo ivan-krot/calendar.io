@@ -1,0 +1,211 @@
+.search {
+  padding: 3em 1em;
+  background-color: #ccc;
+  outline: transparent; }
+  .search form {
+    overflow: hidden; }
+    .search form > input[type="text"] {
+      width: 100%;
+      padding-right: 1.5em;
+      color: #000; }
+      .search form > input[type="text"]:focus {
+        background-color: #cc0; }
+    .search form > input[type="reset"] {
+      position: absolute;
+      right: 1.5em;
+      background-color: transparent;
+      padding: .2em; }
+    .search form input {
+      padding-left: .5em;
+      border-radius: .5em;
+      outline: transparent; }
+  .search ul {
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+    position: absolute;
+    z-index: 1;
+    background-color: transparent; }
+    .search ul ul {
+      position: relative;
+      background-color: #08c900;
+      margin: .35em .5em;
+      padding: .3em; }
+      .search ul ul li + li {
+        font-style: italic;
+        text-align: right; }
+      .search ul ul li:first-child {
+        font-weight: bold; }
+
+.btn-clear {
+  background-color: transparent;
+  border: none;
+  outline: transparent;
+  padding: 0 .2em 0 0; }
+  .btn-clear:hover {
+    font-weight: bold;
+    transform: rotate(-360deg);
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.2s; }
+
+.all-month {
+  overflow: hidden; }
+
+.single-day {
+  width: 14.2857142857%;
+  float: left;
+  text-align: center;
+  border: 0.05em solid #ccc;
+  cursor: pointer;
+  background-color: #fff;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0.2s; }
+  .single-day > div {
+    position: relative;
+    height: 8em;
+    text-align: left;
+    padding: 0.5em; }
+  .single-day .form {
+    display: none;
+    opacity: 0;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.2s; }
+  .single-day .selected .form {
+    z-index: 1;
+    display: block;
+    opacity: 1;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.2s;
+    padding: .5em; }
+    .single-day .selected .form.left {
+      left: -220%; }
+  .single-day:not(.disabled):hover {
+    background-color: #0af;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.2s; }
+  .single-day.disabled {
+    background-color: #c5b8b8; }
+
+.calendar-width {
+  width: 100%;
+  margin: 1em auto; }
+
+.row-head {
+  padding: .5em 0; }
+  .row-head button {
+    margin: auto .5em; }
+
+.row-title {
+  display: inline-block;
+  width: 15%;
+  vertical-align: baseline;
+  text-align: center;
+  font-weight: bold; }
+
+.today {
+  background-color: #e4e466; }
+
+.form {
+  width: 210%;
+  height: auto;
+  background-color: #72abc7;
+  position: absolute;
+  left: 110%;
+  top: -1.5em;
+  border-radius: 1em; }
+  .form .informer {
+    font-style: italic;
+    padding: .25em;
+    font-size: 1.1em; }
+
+.form-container > div {
+  position: relative; }
+.form-container span.hide-form {
+  display: none; }
+.form-container.selected {
+  background-color: #4d95b9; }
+  .form-container.selected span.hide-form {
+    position: absolute;
+    top: 0;
+    right: 3%;
+    display: inline-block;
+    font-weight: bold;
+    cursor: pointer;
+    width: 1.5em;
+    height: 1.5em;
+    border: 1px solid #c00;
+    text-align: center;
+    border-radius: 50%; }
+    .form-container.selected span.hide-form:hover {
+      font-weight: bold;
+      cursor: pointer; }
+
+.form input[type="text"],
+.form textarea {
+  width: 100%;
+  margin: .5em 0;
+  border-radius: .5em;
+  padding: .15em .5em;
+  outline: none;
+  border: .1em solid transparent;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0.2s;
+  overflow: hidden; }
+  .form input[type="text"]:focus,
+  .form textarea:focus {
+    border: 0.1em solid #cc0;
+    background-color: #ffff33;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0.2s; }
+
+.form button,
+.form input[type="reset"] {
+  margin-right: 1.5em;
+  border-radius: .5em; }
+
+.tasks-output {
+  max-height: 6em;
+  overflow-y: auto;
+  overflow-x: hidden; }
+
+ul {
+  padding: 0 .5em;
+  border-radius: .5em;
+  margin-right: .5em;
+  background-color: rgba(100, 100, 100, 0.3); }
+  ul > li {
+    list-style: none;
+    font-size: .7em; }
+    ul > li > span.title {
+      font-style: italic;
+      font-weight: bold; }
+
+.edit_task > span {
+  font-weight: bold;
+  color: #c00; }
+  .edit_task > span + span {
+    color: #00c; }
+
+.btn-danger {
+  margin-top: 1em; }
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+/*# sourceMappingURL=calendar.css.map */

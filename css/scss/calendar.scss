@@ -1,0 +1,239 @@
+$color-gray: #ccc;
+$color-black: #000;
+$color-red: #c00;
+$color-hover: #0af;
+$color-disable: #c5b8b8;
+$color-blue: #00c;
+$color-today: #e4e466;
+$color-select: #0af;
+$color-yellow: #cc0;
+$color-light-green: #08c900;
+$color-light-blue: #4d95b9;
+
+@mixin transit($property:all, $duration:.5s, $timing:ease-in-out, $delay:.2s){
+    transition-property: $property;
+    transition-duration: $duration;
+    transition-timing-function: $timing;
+    transition-delay: $delay;
+}
+.search {
+    padding: 3em 1em;
+    background-color: $color-gray;
+    outline: transparent;
+    form {
+        overflow: hidden;
+        &> input[type="text"] {
+            width: 100%;
+            padding-right: 1.5em;
+            color: $color-black;
+            &:focus {
+                background-color: $color-yellow;
+            }
+        }
+        &> input[type="reset"] {
+            position: absolute;
+            right: 1.5em;
+            background-color: transparent;
+            padding: .2em;
+        }
+
+        input {
+            padding-left: .5em;
+            border-radius: .5em;
+            outline: transparent;
+        }
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        min-height: 0;
+        position: absolute;
+        z-index: 1;
+        background-color: transparent;
+        ul {
+            position: relative;
+            background-color: $color-light-green;
+            margin: .35em .5em;
+            padding: .3em;
+            li+li {
+                font-style: italic; 
+                text-align: right;
+            }
+            li:first-child {
+                font-weight: bold;
+            }
+        }
+    }    
+}
+.btn-clear {
+    background-color: transparent;
+    border: none;
+    outline: transparent;
+    padding: 0 .2em 0 0;
+    &:hover {
+        font-weight: bold;
+        transform: rotate(-360deg);
+        @include transit;
+    }
+}
+.all-month {
+    overflow: hidden;
+}
+.single-day {
+    width: 100 / 7 * 1%;
+    float: left;
+    text-align: center;
+    border: .05em solid $color-gray;
+    cursor: pointer;
+    background-color: #fff;
+    @include transit;
+    > div {
+        position: relative;
+        height: 8em;
+        text-align: left;
+        padding: 0.5em;
+    }
+    .form {
+        display: none;
+        opacity: 0;
+        @include transit;
+    }
+    .selected {
+        .form {
+            z-index: 1;
+            display: block;
+            opacity: 1;
+            @include transit;
+            padding: .5em;
+            &.left {
+                left: -220%;
+            }
+        }
+        
+    }
+    &:not(.disabled):hover {
+        background-color: $color-hover;
+        @include transit;
+    }
+    &.disabled {
+        background-color: $color-disable;
+    }
+}
+.calendar-width {
+    width: 100%;
+    margin: 1em auto;
+}
+.row-head {
+    padding: .5em 0;
+    button {
+        margin: auto .5em;
+    }
+}
+.row-title {
+    display: inline-block;
+    width: 15%;
+    vertical-align: baseline;
+    text-align: center;
+    font-weight: bold;
+}
+.today {
+    background-color: $color-today;
+}
+.form {
+    width: 210%;
+    height: auto;
+    background-color: lighten($color-light-blue,10%);
+    position: absolute;
+    left: 110%;
+    top: -1.5em;
+    border-radius: 1em;
+    .informer {
+        font-style: italic;
+        padding: .25em;
+        font-size: 1.1em;
+    }
+}
+.form-container {
+    & >div {
+        position: relative;
+    }
+    span.hide-form {
+        display: none;
+    }
+    &.selected {
+        background-color: $color-light-blue;
+        span.hide-form{
+            position: absolute;
+            top: 0;
+            right: 3%;
+            display: inline-block;
+            font-weight: bold;
+            cursor: pointer;
+            width: 1.5em;
+            height: 1.5em;
+            border: 1px solid $color-red;
+            text-align: center;
+            border-radius: 50%;
+            &:hover {
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.form input[type="text"],
+.form textarea {
+    width:100%;
+    margin: .5em 0;
+    border-radius: .5em;
+    padding: .15em .5em;
+    outline: none;
+    border: .1em solid transparent;
+    @include transit;
+    overflow: hidden;
+    &:focus {
+        border: .1em solid $color-yellow;
+        background-color: lighten($color-yellow,20%);
+        @include transit;
+    }
+}
+.form button,
+.form input[type="reset"] {
+    margin-right: 1.5em;
+    border-radius: .5em;
+}
+.tasks-output {
+    max-height: 6em;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+ul {
+    padding: 0 .5em;
+    border-radius: .5em;
+    margin-right: .5em;
+    background-color: rgba(100,100,100, .3);
+    &> li {
+        list-style: none;
+        font-size: .7em;
+        >span.title {
+            font-style: italic;
+            font-weight: bold;
+        }
+    }
+}
+.edit_task>span {
+    font-weight: bold;
+    color: $color-red;
+    &+span {
+        color: $color-blue;
+    }
+}
+.btn-danger {
+    margin-top: 1em;
+}
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
